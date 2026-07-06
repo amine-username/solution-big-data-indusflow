@@ -1,0 +1,10 @@
+user_id,username,role,is_active,last_login
+1,admin,ADMIN,1,2024-06-05 20:30:20
+2,data_eng_1,DATA_ENGINEER,1,2024-05-11 00:57:59
+3,data_eng_2,,1,2024-11-14 05:15:28
+4,analyst_1,ANALYST,1,2024-10-04 01:36:03
+5,analyst_2,ANALYST,1,2024-08-31 12:03:48
+6,ops_1,OPS,1,2024-05-21 00:15:35
+7,manager_1,MANAGER,1,2024-08-04 17:51:24
+8,auditor,AUDITOR,1,2024-06-30 00:11:32
+9,guest_tmp,ADMIN,1,

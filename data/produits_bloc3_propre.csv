@@ -1,0 +1,16 @@
+product_id,product_name,category,unit_cost
+1,Component_1,Electronic,86.99
+2,Component_2,Electronic,136.78
+3,Component_3,Mechanical,93.51
+4,Component_4,Electronic,15.0
+5,Component_5,Hydraulic,140.08
+6,Component_6,Electronic,149.97
+7,Component_7,Electronic,102.99
+8,Component_8,Electronic,191.26
+9,Component_9,Electronic,39.21
+10,Component_10,Electronic,133.33
+11,Component_11,Hydraulic,115.91
+12,Component_12,Hydraulic,175.02
+13,Component_13,Hydraulic,37.29
+14,Component_14,Electronic,95.1
+15,Component_15,Hydraulic,135.25
