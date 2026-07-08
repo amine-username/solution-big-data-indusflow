@@ -1,0 +1,252 @@
+livrable_kpi:
+
+======================================================================
+                            KPI PRODUCTION                            
+======================================================================
+Nombre total de cycles   : 500
+Temps moyen              : 305.06 sec
+Temps médian             : 312.50 sec
+Temps minimum            : 31 sec
+Temps maximum            : 596 sec
+Écart-type               : 163.48 sec
+
+Cycles rapides : 340 (68.00%)
+Cycles lents   : 160 (32.00%)
+
+--- Alertes production ---
+✅ Temps moyen de production conforme
+✅ Taux de cycles lents acceptable
+
+--- Production par usine ---
+1    104
+2     93
+3    102
+4     88
+5    113
+Name: factory_id, dtype: int64
+
+Temps moyen par usine :
+factory_id
+1    310.269231
+2    292.021505
+3    310.882353
+4    301.352273
+5    308.610619
+Name: production_time_sec, dtype: float64
+
+🏆 Usine la plus performante : 2
+🐌 Usine la moins performante : 3
+
+--- Top 5 produits (par volume de cycles) ---
+1     43
+15    39
+11    38
+7     37
+2     36
+Name: product_id, dtype: int64
+
+--- Top 5 clients (par volume de cycles) ---
+1     78
+17    34
+2     29
+6     28
+16    26
+Name: client_id, dtype: int64
+
+======================================================================
+                             KPI QUALITE                              
+======================================================================
+Nombre de contrôles caméra : 1000
+Nombre de défauts détectés : 106
+Taux de conformité         : 89.40%
+Score de confiance moyen   : 0.796
+
+--- Top 5 machines avec le plus de défauts ---
+M-18    9
+M-4     8
+M-19    8
+M-17    8
+M-13    7
+Name: machine_id, dtype: int64
+
+--- Alertes qualité ---
+✅ Taux de conformité qualité conforme
+✅ Score de confiance caméra correct
+
+======================================================================
+                           KPI MAINTENANCE                            
+======================================================================
+Nombre d'interventions      : 220
+Durée moyenne intervention  : 194.91 min
+Coût total maintenance      : 400,291.24 €
+Coût moyen par intervention : 1,819.51 €
+
+--- Répartition par type d'intervention ---
+Preventive     76
+Corrective     68
+Inspection     47
+Calibration    29
+Name: maintenance_type, dtype: int64
+
+--- Répartition par statut ---
+Completed    163
+Planned       42
+Cancelled     15
+Name: status, dtype: int64
+
+--- Top 5 machines les plus maintenues ---
+M-2     19
+M-12    16
+M-4     16
+M-17    15
+M-6     14
+Name: machine_id, dtype: int64
+
+--- Alertes maintenance ---
+✅ Coût de maintenance sous contrôle
+✅ Durée des interventions normale
+
+======================================================================
+                         KPI PANNES MACHINES                          
+======================================================================
+Nombre total de pannes       : 1800
+Pannes résolues              : 1275
+Taux de résolution           : 70.83%
+Temps moyen de résolution    : 362.73 min
+
+--- Répartition par sévérité ---
+MEDIUM      652
+LOW         602
+HIGH        363
+CRITICAL    183
+Name: severity, dtype: int64
+
+--- Top 5 machines les plus en panne ---
+M-7     98
+M-9     98
+M-15    98
+M-17    97
+M-8     97
+Name: machine_id, dtype: int64
+
+Pannes critiques : 183
+
+--- Alertes pannes ---
+⚠️  ALERTE : Nombre de pannes trop élevé
+⚠️  ALERTE : Taux de résolution des pannes trop faible
+✅ Temps de résolution des pannes correct
+
+======================================================================
+                        KPI MONITORING AIRFLOW                        
+======================================================================
+Nombre de jobs Airflow     : 592
+Jobs en échec              : 68
+Taux d'échec               : 11.49%
+Durée moyenne d'un job     : 871.05 sec
+Volume total de données    : 146,432,929 lignes traitées
+
+--- Répartition par statut ---
+success         425
+failed           68
+up_for_retry     51
+running          48
+Name: status, dtype: int64
+
+--- Top 5 DAGs les plus exécutés ---
+ingest_capteurs        115
+ingest_logs_erreurs    102
+clean_production        99
+sync_warehouse          98
+daily_kpi               93
+Name: dag_name, dtype: int64
+
+--- Alertes Airflow ---
+✅ Pipeline Airflow stable
+
+======================================================================
+                        KPI CAPTEURS MACHINES                         
+======================================================================
+Température moyenne : 69.84 °C
+Vibration moyenne   : 5.02
+Pression moyenne    : 10.06 bar
+
+Dépassements température : 41
+Dépassements vibration   : 165
+Dépassements pression    : 148
+
+--- Top 5 machines avec les plus de dépassements température ---
+M-15    5
+M-19    5
+M-7     5
+M-18    4
+M-8     4
+Name: machine_id, dtype: int64
+
+--- Alertes capteurs ---
+⚠️  ALERTE : 41 dépassements de température détectés
+⚠️  ALERTE : 165 dépassements de vibration détectés
+⚠️  ALERTE : 148 dépassements de pression détectés
+
+======================================================================
+                     KPI ALERTES MONITORING INFRA                     
+======================================================================
+Nombre total d'alertes         : 440
+Alertes non résolues           : 119
+Alertes critiques              : 52
+Alertes critiques non résolues : 15
+
+--- Répartition par système ---
+storage_node      81
+auth_service      76
+postgresql        75
+airflow           75
+spark_cluster     69
+api_prediction    64
+Name: system_name, dtype: int64
+
+--- Répartition par sévérité ---
+INFO        160
+WARNING     141
+HIGH         87
+CRITICAL     52
+Name: severity, dtype: int64
+
+--- Alertes infrastructure ---
+⚠️  ALERTE : Trop d'alertes critiques infrastructure non résolues
+
+======================================================================
+                       KPI PLANNING PRODUCTION                        
+======================================================================
+Nombre de plans de production : 320
+Plans en retard                : 38
+Plans terminés                 : 135
+Taux de retard                 : 11.88%
+Taux de complétion             : 42.19%
+
+--- Répartition par statut ---
+Completed      135
+Planned        111
+Delayed         38
+In Progress     36
+Name: status, dtype: int64
+
+--- Répartition par priorité ---
+Medium    170
+High       78
+Low        72
+Name: priority, dtype: int64
+
+--- Alertes planning ---
+✅ Planning de production respecté
+
+======================================================================
+                      RESUME GLOBAL DES ALERTES                       
+======================================================================
+Nombre total d'alertes déclenchées : 6
+
+1. ⚠️  Nombre de pannes trop élevé
+2. ⚠️  Taux de résolution des pannes trop faible
+3. ⚠️  41 dépassements de température détectés
+4. ⚠️  165 dépassements de vibration détectés
+5. ⚠️  148 dépassements de pression détectés
+6. ⚠️  Trop d'alertes critiques infrastructure non résolues
