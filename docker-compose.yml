@@ -1,0 +1,77 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: indusflow_postgres
+    restart: always
+
+    environment:
+      POSTGRES_USER: indusflow_user
+      POSTGRES_PASSWORD: indusflow_password
+      POSTGRES_DB: indusflow
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  airflow:
+    image: apache/airflow:2.9.3
+
+    container_name: indusflow_airflow
+
+    restart: always
+
+    depends_on:
+      - postgres
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+
+      # Connexion à ta base PostgreSQL
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://indusflow_user:indusflow_password@postgres:5432/indusflow
+
+
+    volumes:
+      # Ton DAG
+      - ./dags:/opt/airflow/dags
+
+      # Tes scripts
+      - ./etl:/opt/airflow/etl
+
+      # Tes données
+      - ./data:/opt/airflow/data
+      - ./data_clean:/opt/airflow/data_clean
+
+      # Ton script KPI
+      - ./kpi_postgresql.py:/opt/airflow/kpi_postgresql.py
+
+      # Logs Airflow
+      - ./logs:/opt/airflow/logs
+
+
+    command: >
+      bash -c "
+      airflow db init &&
+      airflow users create
+      --username admin
+      --password admin
+      --firstname Admin
+      --lastname User
+      --role Admin
+      --email admin@test.com || true &&
+      airflow webserver
+      "
+
+
+volumes:
+
+  postgres_data:

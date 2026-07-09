@@ -1,0 +1,35 @@
+[2026-07-09T01:05:18.302+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-09T01:05:18.328+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: indusflow_pipeline.clean_data manual__2026-07-09T00:51:21.018742+00:00 [queued]>
+[2026-07-09T01:05:18.334+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: indusflow_pipeline.clean_data manual__2026-07-09T00:51:21.018742+00:00 [queued]>
+[2026-07-09T01:05:18.335+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 3
+[2026-07-09T01:05:18.346+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): clean_data> on 2026-07-09 00:51:21.018742+00:00
+[2026-07-09T01:05:18.355+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=495) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-09T01:05:18.353+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'indusflow_pipeline', 'clean_data', 'manual__2026-07-09T00:51:21.018742+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/indusflow_dags.py', '--cfg-path', '/tmp/tmpmsgan629']
+[2026-07-09T01:05:18.356+0000] {standard_task_runner.py:91} INFO - Job 27: Subtask clean_data
+[2026-07-09T01:05:18.356+0000] {standard_task_runner.py:64} INFO - Started process 497 to run task
+[2026-07-09T01:05:18.405+0000] {task_command.py:426} INFO - Running <TaskInstance: indusflow_pipeline.clean_data manual__2026-07-09T00:51:21.018742+00:00 [running]> on host 2c929e3e78c6
+[2026-07-09T01:05:18.481+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='indusflow' AIRFLOW_CTX_DAG_ID='indusflow_pipeline' AIRFLOW_CTX_TASK_ID='clean_data' AIRFLOW_CTX_EXECUTION_DATE='2026-07-09T00:51:21.018742+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-09T00:51:21.018742+00:00'
+[2026-07-09T01:05:18.481+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-09T01:05:18.495+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-09T01:05:18.496+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow\n        python3 /opt/airflow/etl/etl_python.py\n        ']
+[2026-07-09T01:05:18.503+0000] {subprocess.py:86} INFO - Output:
+[2026-07-09T01:05:19.156+0000] {subprocess.py:93} INFO - acces_utilisateurs.csv OK - lignes clean: 7
+[2026-07-09T01:05:19.156+0000] {subprocess.py:93} INFO - alertes_monitoring.csv OK - lignes clean: 440
+[2026-07-09T01:05:19.156+0000] {subprocess.py:93} INFO - cameras_qualite_bloc3_propre.csv OK - lignes clean: 1000
+[2026-07-09T01:05:19.157+0000] {subprocess.py:93} INFO - capteurs_machines_bloc3_propre.csv OK - lignes clean: 2000
+[2026-07-09T01:05:19.157+0000] {subprocess.py:93} INFO - clients_industriels_bloc3_propre.csv OK - lignes clean: 20
+[2026-07-09T01:05:19.157+0000] {subprocess.py:93} INFO - cycles_production_bloc3_propre.csv OK - lignes clean: 500
+[2026-07-09T01:05:19.157+0000] {subprocess.py:93} INFO - etapes_fabrication_bloc3_propre.csv OK - lignes clean: 1767
+[2026-07-09T01:05:19.157+0000] {subprocess.py:93} INFO - logs_erreurs_machines_bloc3_propre.csv OK - lignes clean: 1800
+[2026-07-09T01:05:19.157+0000] {subprocess.py:93} INFO - logs_jobs_airflow.csv OK - lignes clean: 592
+[2026-07-09T01:05:19.158+0000] {subprocess.py:93} INFO - maintenance_machines_bloc3_propre.csv OK - lignes clean: 220
+[2026-07-09T01:05:19.158+0000] {subprocess.py:93} INFO - pieces_detachees_bloc3_propre.csv OK - lignes clean: 120
+[2026-07-09T01:05:19.158+0000] {subprocess.py:93} INFO - planning_production_bloc3_propre.csv OK - lignes clean: 320
+[2026-07-09T01:05:19.158+0000] {subprocess.py:93} INFO - produits_bloc3_propre.csv OK - lignes clean: 15
+[2026-07-09T01:05:19.158+0000] {subprocess.py:93} INFO - usines_bloc3_propre.csv OK - lignes clean: 5
+[2026-07-09T01:05:19.219+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-09T01:05:19.220+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-09T01:05:19.255+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=indusflow_pipeline, task_id=clean_data, run_id=manual__2026-07-09T00:51:21.018742+00:00, execution_date=20260709T005121, start_date=20260709T010518, end_date=20260709T010519
+[2026-07-09T01:05:19.292+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-07-09T01:05:19.335+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-09T01:05:19.339+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
